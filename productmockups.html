@@ -262,7 +262,7 @@
 
 <section data-bs-version="5.1" class="footer4 cid-uA2MJStMrp" once="footers" id="footer04-5l">
 
-    <style>
+<style>
 
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
@@ -303,6 +303,91 @@
   }
 }
 
+/* Pasek przewijania */
+::-webkit-scrollbar {
+  width: 20px; /* Zwiększona szerokość */
+  height: 20px; /* Dla poziomego paska, jeśli istnieje */
+}
+
+/* Tło paska przewijania */
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #0d0d0d, #1a1a1a); /* Gradient na całej długości */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.7); /* Głębia */
+  position: relative; /* Utrzymanie gradientu */
+}
+
+/* Pasek thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #2d9cff, #1e78d9, #3d8eff); /* Gradient thumb */
+  border-radius: 10px; /* Zaokrąglenia */
+  border: 4px solid transparent; /* Transparentne obramowanie */
+  background-clip: padding-box; /* Naprawa nakładania */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5); /* Efekt wgłębienia */
+}
+
+/* Hover efekt na thumb */
+  background: linear-gradient(to bottom, #1e78d9, #2d9cff); /* Zmiana gradientu */
+  box-shadow: 0 0 10px rgba(45, 156, 255, 0.7); /* Blask */
+}
+
+}
+
+/* Obracające się logo */
+.logo-rotate {
+  width: 150px;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.logo-rotate:hover {
+  transform: scale(1.1) rotate(5deg); /* Powiększenie i lekki obrót przy najechaniu */
+}
+
+/* Styl ikony */
+#notification img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+
+  /* Dopasowany biały blask */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+  
+  /* Animacja */
+  animation: tilt 2s ease-in-out infinite;
+}
+
+/* Definicja animacji przechylania */
+@keyframes tilt {
+  0% {
+    transform: rotate(10deg); /* Start - przechylenie w prawo */
+  }
+  50% {
+    transform: rotate(-10deg); /* Przechylenie w lewo */
+  }
+  100% {
+    transform: rotate(10deg); /* Powrót do przechylenia w prawo */
+  }
+}
+
+  /* Styl przycisku */
+  #notification button {
+    background-color: #479dff;  /* Kolor tła przycisku */
+    color: white;  /* Kolor tekstu przycisku */
+    border: none;
+    padding: 10px 20px;  /* Zwiększenie przestrzeni wokół tekstu przycisku */
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;  /* Oddalenie przycisku od tekstu */
+    box-shadow: 0 0 10px rgba(71, 157, 255, 0.6);  /* Lekki blask do przycisku */
+  }
+
+  /* Styl przycisku po najechaniu */
+  #notification button:hover {
+    background-color: #88c0ff;  /* Zmiana koloru tła na #88c0ff po najechaniu */
+    box-shadow: 0 0 15px rgba(71, 157, 255, 0.8);  /* Zwiększenie blasku przy najechaniu */
+  }
+
 /* Styl dla logo */
 .logo-rotate {
     width: 150px; /* Rozmiar logo */
@@ -314,7 +399,27 @@
 .logo-rotate:hover {
     transform: scale(1.1) rotate(5deg); /* Lekkie powiększenie i wychylenie */
 }
-  
+
+/* Styl dla samej ikony strzałki */
+.arrow-icon {
+    width: 50px; /* Dostosuj rozmiar ikony */
+    height: auto;
+    display: inline-block; /* Zapewnia elastyczność */
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Płynne przejście */
+}
+
+/* Efekt po najechaniu kursorem */
+.arrow-icon:hover {
+    transform: translateY(-5px); /* Uniesienie w górę o 5px */
+}
+
+  #header14-43 .card {
+    background-color: rgba(0, 0, 0, 0.60); /* Ciemne tło z 85% przezroczystością */
+    border: 2px solid #008CFF; /* Obramowanie w kolorze niebieskim */
+    border-radius: 15px; /* Zaokrąglone rogi */
+    padding: 0px; /* Odstęp wewnętrzny */
+    box-shadow: 0 0 15px 5px rgba(0, 140, 255, 0.2);
+  }
 a.btn {
     display: inline-flex; /* Flexbox dla lepszego wyrównania */
     align-items: center; /* Wyrównanie ikony i tekstu w pionie */
