@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/sacky-logo-beztla-96x96.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+<title>Sacky</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=c485Xf"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=c485Xf" type="text/css">
+
+  <!-- Link do Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="video-overlay"></div> <!-- Przyciemnienie na tle wideo -->
+
+  <video class="video-background" autoplay muted loop>
+    <source src="assets/videos/video-backgroud-website.mp4" type="video/mp4">
+    Twoja przeglądarka nie obsługuje tagu video.
+  </video>
+
+  <div class="blurred-frame">
+    <div class="avatar">
+      <img src="assets/images/logosacky3-596x596.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div id="view-counter" style="position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.219); padding: 10px 15px; border-radius: 10px; color: white; display: flex; align-items: center; gap: 8px; font-size: 16px;">
+      <i class="fa-solid fa-eye" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.308), 0 0 10px rgba(255, 255, 255, 0.308);"></i>
+      <span id="view-count" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.308), 0 0 10px rgba(255, 255, 255, 0.308);">0</span>
+      <div id="view-tooltip" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.158); color: rgb(255, 255, 255); padding: 5px 10px; border-radius: 5px; font-size: 14px; opacity: 0; transition: opacity 0.3s ease; white-space: nowrap; margin-top: 5px;">Profile Views</div>
+    </div>
+  
+    <div class="text-container">
+      <div id="particles-js">
+        <h1>Sacky</h1>
+      </div>
+      <p id="animated-text">Graphic Designer & Editor</p>
+      
+<!-- Kontener na przyciski -->
+<div class="buttons-container">
+  <a href="https://www.youtube.com/@SackyPL" target="_blank" class="gradient-btn youtube-btn">
+      <i class="fab fa-youtube"></i> YouTube
+  </a>
+
+  <a href="https://discord.com/users/662788934266388510" target="_blank" class="gradient-btn discord-btn">
+      <i class="fab fa-discord"></i> Discord
+  </a>
+</div>
+
+<!-- Kontener na odznaki -->
+<div class="badge-container">
+  <!-- Druga odznaka - Champion -->
+  <div class="badge-item champion">
+      <i class="fa-solid fa-trophy"></i>
+      <div class="badge-tooltip">Odznaka 1</div>
+  </div>
+
+  <!-- Pierwsza odznaka - Medium Rare -->
+  <div class="badge-item medium-rare">
+      <i class="fa-solid fa-medal"></i>
+      <div class="badge-tooltip">Odznaka 2</div>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <div class="volume-container">
+    <button id="playPauseButton"><i class="fa-solid fa-circle-play"></i></button>
+    <label for="volumeControl"><i class="fa-solid fa-volume-high"></i></label>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.2">
+</div>
+
+<audio id="audioPlayer" loop>
+    <source src="assets/music/music.mp3" type="audio/mp3">
+    Twoja przeglądarka nie obsługuje elementu audio.
+</audio>
+
+</body>
+
+<section data-bs-version="5.1" class="header1 cid-uA29Gdfgi7 mbr-fullscreen" id="header01-4j">
+</section>
+
+<style>
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Zapobiega przewijaniu strony */
+  font-family: 'Open Sans', sans-serif;
+  position: relative; /* Ważne dla poprawnego ustawienia wideo */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Dopasowuje wideo do tła, zachowując proporcje */
+  z-index: -1; /* Ustawiamy wideo w tle */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Przyciemnienie o 50% */
+  z-index: 0; /* Ustawiamy przyciemnienie na tle, poniżej treści */
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  z-index: 9999;
+  pointer-events: none;
+  font-size: 8px; /* Mniejszy rozmiar płatków */
+  color: rgba(255, 255, 255, 0.6); /* Ustalamy przezroczystość */
+  user-select: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.content {
+  z-index: 1; /* Ważne, aby inne elementy były nad wideo */
+  text-align: center;
+  color: white;
+}
+
+
+.blurred-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 600px;
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.295);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255, 0.35);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%; /* Zapewnia okrąg */
+    object-fit: cover; /* Dopasowanie obrazu */
+    overflow: hidden; /* Ukrywa nadmiar */
+    margin-bottom: 1.5rem;
+}
+
+.text-container {
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.text-container h1 {
+    font-size: 2.8rem; /* Wielkość nagłówka */
+    font-weight: 550; /* Lżejsza wersja czcionki (np. 100 - najlżejsza, 400 - normalna, 700 - gruba) */
+    margin-bottom: 0.8rem;
+    color: #fff; /* Kolor tekstu biały */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                 0 0 13px #ffffff57, 
+                 0 0 13px #ffffff57, 
+                 0 0 13px #ffffff57; /* Stały biały blask */
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 10px #00ffcc; }
+    50% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
+    100% { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 10px #00ffcc; }
+}
+
+.text-container p {
+    font-size: 1.2rem; /* Wielkość opisu */
+    margin-top: 20px; /* Dodatkowo możesz dostosować odstęp nad <p>, jeśli chcesz */
+    opacity: 0.9; /* Lekka przezroczystość */
+    color: #fff; /* Kolor tekstu biały */
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie zawartości */
+    justify-content: center;
+}
+
+.content h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+.content p {
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Początkowe przyciemnienie */
+  backdrop-filter: blur(10px); /* Początkowe rozmycie */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease; /* Animacja dla tła, rozmycia, i opacity */
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  opacity: 1;
+  transition: opacity 1s ease; /* Animacja dla całej zawartości */
+}
+
+/* Animacja tekstu */
+.overlay-content p {
+  font-size: 28px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 650;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 1s ease; /* Animacja dla tekstu */
+}
+
+.overlay.hide {
+  opacity: 0; /* Tło, rozmycie i cała zawartość znikają przez opacity */
+}
+
+.overlay-content.hide {
+  opacity: 0; /* Cała zawartość zniknie */
+}
+
+.overlay-content p.hide {
+  opacity: 0; /* Tekst znika */
+}
+
+.overlay-content .icon.hide {
+  opacity: 0; /* Ikona znika */
+}
+
+/* Kontener na przyciski - używamy grid */
+.buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dwa równe kolumny */
+  gap: 15px; /* Odstęp między przyciskami */
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px; /* Odstęp od tekstu */
+}
+
+/* Styl bazowy przycisków */
+.gradient-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 3px solid transparent; /* Zwiększenie grubości obramowania */
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Gradientowa animacja obwódki */
+.gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px);
+  animation: gradient-animation 3s ease infinite;
+}
+
+/* Animacja gradientu */
+@keyframes gradient-animation {
+  0% {
+    background-position: 400% 0;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+/* Styl ikony Font Awesome */
+.gradient-btn i {
+  font-size: 20px; /* Rozmiar ikony */
+}
+
+/* Efekt domyślny dla przycisków */
+.gradient-btn {
+  border-color: transparent; /* Początkowy stan obramowania */
+}
+
+/* Efekt na hover (kolor i świecenie) */
+.gradient-btn:hover {
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Subtelny cień na zewnątrz */
+}
+
+/* YouTube - gradient od #fc3535 do #bd1111 */
+.youtube-btn::before {
+  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7)); /* Zmniejszenie krycia gradientu */
+  background-size: 400% 400%;
+}
+
+/* Discord - gradient od #7289da do #4971fc */
+.discord-btn::before {
+  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7)); /* Zmniejszenie krycia gradientu */
+  background-size: 400% 400%;
+}
+
+/* Specyficzne style dla YouTube */
+.youtube-btn {
+  border-color: #fc3535; /* Zawsze widoczny obrys YouTube */
+}
+
+.youtube-btn:hover {
+  background: linear-gradient(to right, #fc3535, #bd1111); /* Tło zmienia się na intensywniejsze */
+  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6); /* Cień z kolorem YouTube */
+}
+
+/* Specyficzne style dla Discord */
+.discord-btn {
+  border-color: #7289da; /* Zawsze widoczny obrys Discord */
+}
+
+.discord-btn:hover {
+  background: linear-gradient(to right, #7289da, #4971fc); /* Tło zmienia się na intensywniejsze */
+  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6); /* Cień z kolorem Discord */
+}/* Kontener na przyciski - używamy grid */
+.buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dwa równe kolumny */
+  gap: 15px; /* Odstęp między przyciskami */
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px; /* Odstęp od tekstu */
+}
+
+/* Styl bazowy przycisków */
+.gradient-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 1px solid transparent; /* Zwiększenie grubości obramowania */
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Gradientowa animacja obwódki */
+.gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(10px);
+  animation: gradient-animation 3s ease infinite;
+}
+
+/* Animacja gradientu */
+@keyframes gradient-animation {
+  0% {
+    background-position: 400% 0;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 400% 0;
+  }
+}
+
+/* Styl ikony Font Awesome */
+.gradient-btn i {
+  font-size: 20px; /* Rozmiar ikony */
+}
+
+/* Efekt domyślny dla przycisków */
+.gradient-btn {
+  border-color: transparent; /* Początkowy stan obramowania */
+}
+
+/* Efekt na hover (kolor i świecenie) */
+.gradient-btn:hover {
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.479); /* Subtelny cień na zewnątrz */
+}
+
+/* YouTube - gradient od #fc3535 do #bd1111 */
+.youtube-btn::before {
+  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7)); /* Zmniejszenie krycia gradientu */
+  background-size: 400% 400%;
+}
+
+/* Discord - gradient od #7289da do #4971fc */
+.discord-btn::before {
+  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7)); /* Zmniejszenie krycia gradientu */
+  background-size: 400% 400%;
+}
+
+/* Specyficzne style dla YouTube */
+.youtube-btn {
+  border-color: #fc3535; /* Zawsze widoczny obrys YouTube */
+}
+
+.youtube-btn:hover {
+  background: linear-gradient(to right, #fc3535, #bd1111); /* Tło zmienia się na intensywniejsze */
+  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6); /* Cień z kolorem YouTube */
+}
+
+/* Specyficzne style dla Discord */
+.discord-btn {
+  border-color: #7289da; /* Zawsze widoczny obrys Discord */
+}
+
+.discord-btn:hover {
+  background: linear-gradient(to right, #7289da, #4971fc); /* Tło zmienia się na intensywniejsze */
+  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6); /* Cień z kolorem Discord */
+}
+
+/* Kontener na odznaki */
+.badge-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex; /* Flexbox dla ułożenia odznak obok siebie */
+    align-items: center;
+    justify-content: center;
+    gap: 14px; /* Odstęp między odznakami */
+}
+
+/* Kontener każdej odznaki (umożliwia oddzielne zarządzanie efektem hover) */
+.badge-item {
+    position: relative; /* Ważne do ustawienia tooltip */
+}
+
+/* Gradient i poprawne wyświetlanie ikony */
+.badge-item i {
+    font-size: 1.4em;
+    background: linear-gradient(45deg, #FFD700, #ff7b00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Płynna animacja */
+}
+
+/* Efekt hover - powiększenie + blask */
+.badge-item:hover i {
+    transform: scale(1.1); /* Powiększenie */
+    filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.4)); /* Intensywniejszy blask */
+}
+
+/* Styl dla napisu "Medium Rare" i nowej odznaki */
+.badge-tooltip {
+    position: absolute;
+    top: 40px;
+    right: 50%;
+    transform: translateX(50%);
+    background: rgba(0, 0, 0, 0.479);
+    color: white;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Płynna animacja */
+    pointer-events: none;
+}
+
+/* Pokazuje tooltip po najechaniu na konkretną odznakę */
+.badge-item:hover .badge-tooltip {
+    opacity: 1;
+    transform: translateX(50%) translateY(5px); /* Delikatne przesunięcie w dół */
+}
+
+/* Gradient dla odznaki Champion */
+.badge-item.champion i {
+    background: linear-gradient(45deg, #00ccff, #008cff); /* Zmieniamy gradient na zielony */
+    -webkit-background-clip: text; /* Zachowanie efektu gradientu na tekście */
+    -webkit-text-fill-color: transparent; /* Ustawienie, aby tekst był przezroczysty, a gradient widoczny */
+}
+
+/* Efekt hover dla odznaki Champion (blask zielony) */
+.badge-item.champion:hover i {
+    transform: scale(1.1); /* Powiększenie */
+    filter: drop-shadow(0 0 8px rgba(0, 183, 255, 0.4)); /* Intensywniejszy blask */
+}
+
+.volume-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.volume-container button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.volume-container label {
+    font-size: 18px;
+    color: white;
+}
+
+#volumeControl {
+    width: 100px;
+    accent-color: #00ccff;
+}
+
+
+</style>
+
+<div id="overlay" class="overlay">
+  <div class="overlay-content">
+    <p>click to enter...</p>
+  </div>
+</div>
+
+<script>
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+  const numberOfSnowflakes = 50; // Zmniejszamy liczbę płatków śniegu
+
+  for (let i = 0; i < numberOfSnowflakes; i++) {
+    let snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.textContent = "❄"; // Płatki śniegu
+    snowflake.style.left = `${Math.random() * 100}vw`; // Losowa pozycja pozioma
+    snowflake.style.animationDuration = `${Math.random() * 8 + 5}s`; // Losowy czas trwania animacji
+    snowflake.style.animationDelay = `${Math.random() * 5}s`; // Losowe opóźnienie
+
+    document.body.appendChild(snowflake);
+
+    // Dodanie losowego rozmiaru płatka śniegu
+    snowflake.style.fontSize = `${Math.random() * 6 + 4}px`; // Płatki będą jeszcze mniejsze
+  }
+});
+
+document.getElementById("overlay").addEventListener("click", function () {
+  // Dodajemy klasę "hide" do zawartości (tekst + ikona) i całego tła
+  document.querySelector(".overlay").classList.add("hide");
+  document.querySelector(".overlay-content").classList.add("hide");
+
+  // Usuwamy element po zakończeniu animacji (po 1s dla tła)
+  setTimeout(() => {
+    this.style.display = "none"; // Ukrywamy całą nakładkę
+  }, 1000); // 1000 ms, czyli 1 sekunda
+});
+
+async function updateAvatar() {
+    const userId = "662788934266388510"; // Twój Discord ID
+    const avatarHash = "a_6c75a04d10800d98470164674a472cc8"; // Twój avatar hash
+    
+    if (avatarHash) {
+        const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.gif?size=512`; // Zmieniamy na .gif
+        document.querySelector(".avatar img").src = avatarUrl;
+    }
+}
+
+// Aktualizuj awatar co 5 minut (300,000 ms)
+updateAvatar();
+setInterval(updateAvatar, 300000);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const audioPlayer = document.getElementById("audioPlayer");
+    const volumeControl = document.getElementById("volumeControl");
+    const playPauseButton = document.getElementById("playPauseButton");
+    const overlay = document.getElementById("overlay");
+
+    // Ustawienie domyślnej głośności
+    const defaultVolume = 0.2; 
+    audioPlayer.volume = defaultVolume;
+    volumeControl.value = defaultVolume;
+
+    // Aktualizacja głośności w czasie rzeczywistym
+    volumeControl.addEventListener("input", (event) => {
+        audioPlayer.volume = event.target.value;
+    });
+
+    // Obsługa przycisku Play/Pause z ikonami
+    playPauseButton.addEventListener("click", () => {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>'; // Ikona pauzy
+        } else {
+            audioPlayer.pause();
+            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>'; // Ikona odtwarzania
+        }
+    });
+
+    // Automatyczne odtwarzanie po kliknięciu "click to enter..."
+    overlay.addEventListener("click", () => {
+        audioPlayer.play();
+        playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>'; // Zmiana na pauzę
+    });
+
+    // Domyślnie ustawiamy ikonę odtwarzania
+    playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+        let userId = localStorage.getItem("userId");
+        if (!userId) {
+            userId = Math.random().toString(36).substr(2, 9); // Tworzenie unikalnego ID
+            localStorage.setItem("userId", userId);
+            let viewCount = localStorage.getItem("viewCount") || 0;
+            viewCount++;
+            localStorage.setItem("viewCount", viewCount);
+            document.getElementById("view-count").textContent = viewCount;
+        } else {
+            document.getElementById("view-count").textContent = localStorage.getItem("viewCount");
+        }
+
+        const viewCounter = document.getElementById("view-counter");
+        const viewTooltip = document.getElementById("view-tooltip");
+        
+        viewCounter.addEventListener("mouseenter", () => {
+            viewTooltip.style.opacity = "1";
+        });
+        
+        viewCounter.addEventListener("mouseleave", () => {
+            viewTooltip.style.opacity = "0";
+        });
+    });
+
+</script>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+  </body>
+</html>
