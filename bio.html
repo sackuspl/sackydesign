@@ -40,12 +40,6 @@
     <div class="avatar">
       <img src="assets/images/logosacky3-596x596.png" alt="Avatar" class="avatar">
     </div>
-
-    <div id="view-counter" style="position: absolute; top: 20px; left: 20px; background: rgba(0, 0, 0, 0.219); padding: 10px 15px; border-radius: 10px; color: white; display: flex; align-items: center; gap: 8px; font-size: 16px;">
-      <i class="fa-solid fa-eye" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.308), 0 0 10px rgba(255, 255, 255, 0.308);"></i>
-      <span id="view-count" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.308), 0 0 10px rgba(255, 255, 255, 0.308);">0</span>
-      <div id="view-tooltip" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.158); color: rgb(255, 255, 255); padding: 5px 10px; border-radius: 5px; font-size: 14px; opacity: 0; transition: opacity 0.3s ease; white-space: nowrap; margin-top: 5px;">Profile Views</div>
-    </div>
   
     <div class="text-container">
       <div id="particles-js">
@@ -681,30 +675,6 @@ document.addEventListener("DOMContentLoaded", () => {
     playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-        let userId = localStorage.getItem("userId");
-        if (!userId) {
-            userId = Math.random().toString(36).substr(2, 9); // Tworzenie unikalnego ID
-            localStorage.setItem("userId", userId);
-            let viewCount = localStorage.getItem("viewCount") || 0;
-            viewCount++;
-            localStorage.setItem("viewCount", viewCount);
-            document.getElementById("view-count").textContent = viewCount;
-        } else {
-            document.getElementById("view-count").textContent = localStorage.getItem("viewCount");
-        }
-
-        const viewCounter = document.getElementById("view-counter");
-        const viewTooltip = document.getElementById("view-tooltip");
-        
-        viewCounter.addEventListener("mouseenter", () => {
-            viewTooltip.style.opacity = "1";
-        });
-        
-        viewCounter.addEventListener("mouseleave", () => {
-            viewTooltip.style.opacity = "0";
-        });
-    });
 
 </script>
 <script src="https://player.vimeo.com/api/player.js"></script>
