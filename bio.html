@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
@@ -24,12 +23,12 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap"></noscript>
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=c485Xf"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=c485Xf" type="text/css">
 
-  <!-- Link do Font Awesome CDN -->
+  <!-- Link for Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   
 </head>
 <body>
-  <div class="video-overlay"></div> <!-- Przyciemnienie na tle wideo -->
+  <div class="video-overlay"></div>
 
   <video class="video-background" autoplay muted loop>
     <source src="assets/videos/video-backgroud-website.mp4" type="video/mp4">
@@ -60,13 +59,13 @@
 
 <!-- Kontener na odznaki -->
 <div class="badge-container">
-  <!-- Druga odznaka - Champion -->
+  <!-- Druga odznaka -->
   <div class="badge-item champion">
       <i class="fa-solid fa-trophy"></i>
       <div class="badge-tooltip">Odznaka 1</div>
   </div>
 
-  <!-- Pierwsza odznaka - Medium Rare -->
+  <!-- Pierwsza odznaka -->
   <div class="badge-item medium-rare">
       <i class="fa-solid fa-medal"></i>
       <div class="badge-tooltip">Odznaka 2</div>
@@ -99,9 +98,9 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  overflow: hidden; /* Zapobiega przewijaniu strony */
+  overflow: hidden;
   font-family: 'Open Sans', sans-serif;
-  position: relative; /* Ważne dla poprawnego ustawienia wideo */
+  position: relative;
 }
 
 .video-background {
@@ -110,8 +109,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Dopasowuje wideo do tła, zachowując proporcje */
-  z-index: -1; /* Ustawiamy wideo w tle */
+  object-fit: cover;
+  z-index: -1;
 }
 
 .video-overlay {
@@ -120,8 +119,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Przyciemnienie o 50% */
-  z-index: 0; /* Ustawiamy przyciemnienie na tle, poniżej treści */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
 .snowflake {
@@ -129,8 +128,8 @@ body {
   top: -10px;
   z-index: 9999;
   pointer-events: none;
-  font-size: 8px; /* Mniejszy rozmiar płatków */
-  color: rgba(255, 255, 255, 0.6); /* Ustalamy przezroczystość */
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.6);
   user-select: none;
   animation: fall linear infinite;
 }
@@ -142,7 +141,7 @@ body {
 }
 
 .content {
-  z-index: 1; /* Ważne, aby inne elementy były nad wideo */
+  z-index: 1;
   text-align: center;
   color: white;
 }
@@ -168,25 +167,25 @@ body {
 .avatar {
     width: 120px;
     height: 120px;
-    border-radius: 100%; /* Zapewnia okrąg */
-    object-fit: cover; /* Dopasowanie obrazu */
-    overflow: hidden; /* Ukrywa nadmiar */
+    border-radius: 100%;
+    object-fit: cover;
+    overflow: hidden;
     margin-bottom: 1.5rem;
 }
 
 .text-container {
-    text-align: center; /* Wyśrodkowanie tekstu */
+    text-align: center;
 }
 
 .text-container h1 {
-    font-size: 2.8rem; /* Wielkość nagłówka */
-    font-weight: 550; /* Lżejsza wersja czcionki (np. 100 - najlżejsza, 400 - normalna, 700 - gruba) */
+    font-size: 2.8rem;
+    font-weight: 550;
     margin-bottom: 0.8rem;
-    color: #fff; /* Kolor tekstu biały */
+    color: #fff;
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
                  0 0 13px #ffffff57, 
                  0 0 13px #ffffff57, 
-                 0 0 13px #ffffff57; /* Stały biały blask */
+                 0 0 13px #ffffff57;
 }
 
 @keyframes glow {
@@ -196,17 +195,17 @@ body {
 }
 
 .text-container p {
-    font-size: 1.2rem; /* Wielkość opisu */
-    margin-top: 20px; /* Dodatkowo możesz dostosować odstęp nad <p>, jeśli chcesz */
-    opacity: 0.9; /* Lekka przezroczystość */
-    color: #fff; /* Kolor tekstu biały */
+    font-size: 1.2rem;
+    margin-top: 20px;
+    opacity: 0.9;
+    color: #fff;
 }
 
 
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Wyśrodkowanie zawartości */
+    align-items: center;
     justify-content: center;
 }
 
@@ -231,14 +230,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Początkowe przyciemnienie */
-  backdrop-filter: blur(10px); /* Początkowe rozmycie */
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: opacity 1s ease; /* Animacja dla tła, rozmycia, i opacity */
+  transition: opacity 1s ease;
 }
 
 .overlay-content {
@@ -248,10 +247,9 @@ body {
   justify-content: center;
   gap: 15px;
   opacity: 1;
-  transition: opacity 1s ease; /* Animacja dla całej zawartości */
+  transition: opacity 1s ease;
 }
 
-/* Animacja tekstu */
 .overlay-content p {
   font-size: 28px;
   color: #ffffff;
@@ -259,43 +257,41 @@ body {
   font-weight: 650;
   margin: 0;
   opacity: 1;
-  transition: opacity 1s ease; /* Animacja dla tekstu */
+  transition: opacity 1s ease;
 }
 
 .overlay.hide {
-  opacity: 0; /* Tło, rozmycie i cała zawartość znikają przez opacity */
+  opacity: 0;
 }
 
 .overlay-content.hide {
-  opacity: 0; /* Cała zawartość zniknie */
+  opacity: 0;
 }
 
 .overlay-content p.hide {
-  opacity: 0; /* Tekst znika */
+  opacity: 0;
 }
 
 .overlay-content .icon.hide {
-  opacity: 0; /* Ikona znika */
+  opacity: 0;
 }
 
-/* Kontener na przyciski - używamy grid */
 .buttons-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dwa równe kolumny */
-  gap: 15px; /* Odstęp między przyciskami */
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   width: 100%;
   max-width: 500px;
-  margin-top: 20px; /* Odstęp od tekstu */
+  margin-top: 20px;
 }
 
-/* Styl bazowy przycisków */
 .gradient-btn {
   padding: 12px 24px;
   font-size: 16px;
   font-weight: bold;
   color: white;
   background-color: transparent;
-  border: 3px solid transparent; /* Zwiększenie grubości obramowania */
+  border: 3px solid transparent;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
@@ -306,7 +302,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Gradientowa animacja obwódki */
 .gradient-btn::before {
   content: '';
   position: absolute;
@@ -319,7 +314,6 @@ body {
   animation: gradient-animation 3s ease infinite;
 }
 
-/* Animacja gradientu */
 @keyframes gradient-animation {
   0% {
     background-position: 400% 0;
@@ -334,69 +328,63 @@ body {
 
 /* Styl ikony Font Awesome */
 .gradient-btn i {
-  font-size: 20px; /* Rozmiar ikony */
+  font-size: 20px;
 }
 
-/* Efekt domyślny dla przycisków */
 .gradient-btn {
-  border-color: transparent; /* Początkowy stan obramowania */
+  border-color: transparent;
 }
 
-/* Efekt na hover (kolor i świecenie) */
 .gradient-btn:hover {
   color: white;
   transform: scale(1.05);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Subtelny cień na zewnątrz */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
-/* YouTube - gradient od #fc3535 do #bd1111 */
 .youtube-btn::before {
-  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7)); /* Zmniejszenie krycia gradientu */
+  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7));
   background-size: 400% 400%;
 }
 
-/* Discord - gradient od #7289da do #4971fc */
 .discord-btn::before {
-  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7)); /* Zmniejszenie krycia gradientu */
+  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7));
   background-size: 400% 400%;
 }
 
-/* Specyficzne style dla YouTube */
 .youtube-btn {
-  border-color: #fc3535; /* Zawsze widoczny obrys YouTube */
+  border-color: #fc3535;
 }
 
 .youtube-btn:hover {
-  background: linear-gradient(to right, #fc3535, #bd1111); /* Tło zmienia się na intensywniejsze */
-  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6); /* Cień z kolorem YouTube */
+  background: linear-gradient(to right, #fc3535, #bd1111);
+  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6);
 }
 
-/* Specyficzne style dla Discord */
 .discord-btn {
-  border-color: #7289da; /* Zawsze widoczny obrys Discord */
+  border-color: #7289da;
 }
 
 .discord-btn:hover {
-  background: linear-gradient(to right, #7289da, #4971fc); /* Tło zmienia się na intensywniejsze */
-  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6); /* Cień z kolorem Discord */
-}/* Kontener na przyciski - używamy grid */
+  background: linear-gradient(to right, #7289da, #4971fc);
+  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6);
+  
+}
 .buttons-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dwa równe kolumny */
-  gap: 15px; /* Odstęp między przyciskami */
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   width: 100%;
   max-width: 500px;
-  margin-top: 20px; /* Odstęp od tekstu */
+  margin-top: 20px;
 }
 
-/* Styl bazowy przycisków */
 .gradient-btn {
   padding: 12px 24px;
   font-size: 16px;
   font-weight: bold;
   color: white;
   background-color: transparent;
-  border: 1px solid transparent; /* Zwiększenie grubości obramowania */
+  border: 1px solid transparent;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
@@ -407,7 +395,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Gradientowa animacja obwódki */
 .gradient-btn::before {
   content: '';
   position: absolute;
@@ -420,7 +407,6 @@ body {
   animation: gradient-animation 3s ease infinite;
 }
 
-/* Animacja gradientu */
 @keyframes gradient-animation {
   0% {
     background-position: 400% 0;
@@ -433,90 +419,78 @@ body {
   }
 }
 
-/* Styl ikony Font Awesome */
 .gradient-btn i {
-  font-size: 20px; /* Rozmiar ikony */
+  font-size: 20px;
 }
 
-/* Efekt domyślny dla przycisków */
 .gradient-btn {
-  border-color: transparent; /* Początkowy stan obramowania */
+  border-color: transparent;
 }
 
-/* Efekt na hover (kolor i świecenie) */
 .gradient-btn:hover {
   color: white;
   transform: scale(1.05);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.479); /* Subtelny cień na zewnątrz */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.479);
 }
 
-/* YouTube - gradient od #fc3535 do #bd1111 */
 .youtube-btn::before {
-  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7)); /* Zmniejszenie krycia gradientu */
+  background: linear-gradient(to right, rgba(252, 53, 53, 0.7), rgba(189, 17, 17, 0.7));
   background-size: 400% 400%;
 }
 
-/* Discord - gradient od #7289da do #4971fc */
 .discord-btn::before {
-  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7)); /* Zmniejszenie krycia gradientu */
+  background: linear-gradient(to right, rgba(114, 137, 218, 0.7), rgba(73, 113, 252, 0.7));
   background-size: 400% 400%;
 }
 
-/* Specyficzne style dla YouTube */
 .youtube-btn {
-  border-color: #fc3535; /* Zawsze widoczny obrys YouTube */
+  border-color: #fc3535;
 }
 
 .youtube-btn:hover {
-  background: linear-gradient(to right, #fc3535, #bd1111); /* Tło zmienia się na intensywniejsze */
-  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6); /* Cień z kolorem YouTube */
+  background: linear-gradient(to right, #fc3535, #bd1111);
+  box-shadow: 0 0 15px rgba(252, 53, 53, 0.6);
 }
 
-/* Specyficzne style dla Discord */
 .discord-btn {
-  border-color: #7289da; /* Zawsze widoczny obrys Discord */
+  border-color: #7289da;
 }
 
 .discord-btn:hover {
-  background: linear-gradient(to right, #7289da, #4971fc); /* Tło zmienia się na intensywniejsze */
-  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6); /* Cień z kolorem Discord */
+  background: linear-gradient(to right, #7289da, #4971fc);
+  box-shadow: 0 0 15px rgba(72, 113, 252, 0.6);
 }
 
-/* Kontener na odznaki */
 .badge-container {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 20px;
     cursor: pointer;
-    display: flex; /* Flexbox dla ułożenia odznak obok siebie */
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px; /* Odstęp między odznakami */
+    gap: 14px;
 }
 
-/* Kontener każdej odznaki (umożliwia oddzielne zarządzanie efektem hover) */
 .badge-item {
-    position: relative; /* Ważne do ustawienia tooltip */
+    position: relative;
 }
 
-/* Gradient i poprawne wyświetlanie ikony */
 .badge-item i {
     font-size: 1.4em;
     background: linear-gradient(45deg, #FFD700, #ff7b00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    transition: transform 0.3s ease, filter 0.3s ease; /* Płynna animacja */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Efekt hover - powiększenie + blask */
 .badge-item:hover i {
-    transform: scale(1.1); /* Powiększenie */
-    filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.4)); /* Intensywniejszy blask */
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.4));
 }
 
-/* Styl dla napisu "Medium Rare" i nowej odznaki */
 .badge-tooltip {
     position: absolute;
     top: 40px;
@@ -529,27 +503,24 @@ body {
     border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Płynna animacja */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     pointer-events: none;
 }
 
-/* Pokazuje tooltip po najechaniu na konkretną odznakę */
 .badge-item:hover .badge-tooltip {
     opacity: 1;
-    transform: translateX(50%) translateY(5px); /* Delikatne przesunięcie w dół */
+    transform: translateX(50%) translateY(5px);
 }
 
-/* Gradient dla odznaki Champion */
 .badge-item.champion i {
-    background: linear-gradient(45deg, #00ccff, #008cff); /* Zmieniamy gradient na zielony */
-    -webkit-background-clip: text; /* Zachowanie efektu gradientu na tekście */
-    -webkit-text-fill-color: transparent; /* Ustawienie, aby tekst był przezroczysty, a gradient widoczny */
+    background: linear-gradient(45deg, #00ccff, #008cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Efekt hover dla odznaki Champion (blask zielony) */
 .badge-item.champion:hover i {
-    transform: scale(1.1); /* Powiększenie */
-    filter: drop-shadow(0 0 8px rgba(0, 183, 255, 0.4)); /* Intensywniejszy blask */
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(0, 183, 255, 0.4));
 }
 
 .volume-container {
@@ -596,45 +567,43 @@ body {
 
   
   document.addEventListener("DOMContentLoaded", () => {
-  const numberOfSnowflakes = 50; // Zmniejszamy liczbę płatków śniegu
+  const numberOfSnowflakes = 50;
 
   for (let i = 0; i < numberOfSnowflakes; i++) {
     let snowflake = document.createElement("div");
     snowflake.classList.add("snowflake");
-    snowflake.textContent = "❄"; // Płatki śniegu
-    snowflake.style.left = `${Math.random() * 100}vw`; // Losowa pozycja pozioma
-    snowflake.style.animationDuration = `${Math.random() * 8 + 5}s`; // Losowy czas trwania animacji
-    snowflake.style.animationDelay = `${Math.random() * 5}s`; // Losowe opóźnienie
+    snowflake.textContent = "❄";
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 8 + 5}s`;
+    snowflake.style.animationDelay = `${Math.random() * 5}s`;
 
     document.body.appendChild(snowflake);
 
-    // Dodanie losowego rozmiaru płatka śniegu
-    snowflake.style.fontSize = `${Math.random() * 6 + 4}px`; // Płatki będą jeszcze mniejsze
+    snowflake.style.fontSize = `${Math.random() * 6 + 4}px`;
   }
 });
 
 document.getElementById("overlay").addEventListener("click", function () {
-  // Dodajemy klasę "hide" do zawartości (tekst + ikona) i całego tła
+
   document.querySelector(".overlay").classList.add("hide");
   document.querySelector(".overlay-content").classList.add("hide");
 
-  // Usuwamy element po zakończeniu animacji (po 1s dla tła)
+
   setTimeout(() => {
-    this.style.display = "none"; // Ukrywamy całą nakładkę
-  }, 1000); // 1000 ms, czyli 1 sekunda
+    this.style.display = "none";
+  }, 1000);
 });
 
 async function updateAvatar() {
-    const userId = "662788934266388510"; // Twój Discord ID
-    const avatarHash = "a_6c75a04d10800d98470164674a472cc8"; // Twój avatar hash
+    const userId = "662788934266388510";
+    const avatarHash = "a_6c75a04d10800d98470164674a472cc8";
     
     if (avatarHash) {
-        const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.gif?size=512`; // Zmieniamy na .gif
+        const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.gif?size=512`;
         document.querySelector(".avatar img").src = avatarUrl;
     }
 }
 
-// Aktualizuj awatar co 5 minut (300,000 ms)
 updateAvatar();
 setInterval(updateAvatar, 300000);
 
@@ -644,40 +613,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const playPauseButton = document.getElementById("playPauseButton");
     const overlay = document.getElementById("overlay");
 
-    // Ustawienie domyślnej głośności
     const defaultVolume = 0.2; 
     audioPlayer.volume = defaultVolume;
     volumeControl.value = defaultVolume;
 
-    // Aktualizacja głośności w czasie rzeczywistym
     volumeControl.addEventListener("input", (event) => {
         audioPlayer.volume = event.target.value;
     });
 
-    // Obsługa przycisku Play/Pause z ikonami
     playPauseButton.addEventListener("click", () => {
         if (audioPlayer.paused) {
             audioPlayer.play();
-            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>'; // Ikona pauzy
+            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
         } else {
             audioPlayer.pause();
-            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>'; // Ikona odtwarzania
+            playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
         }
     });
 
-    // Automatyczne odtwarzanie po kliknięciu "click to enter..."
     overlay.addEventListener("click", () => {
         audioPlayer.play();
-        playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>'; // Zmiana na pauzę
+        playPauseButton.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
     });
 
-    // Domyślnie ustawiamy ikonę odtwarzania
     playPauseButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 });
 
 
 </script>
-<script src="https://player.vimeo.com/api/player.js"></script>
 
 
   </body>
