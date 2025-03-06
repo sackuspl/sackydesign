@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banners</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css"
+      integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<!-- CDN Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.12.1/framer-motion.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="icon" href="assets/pictures/logo-sacky-vector.svg" type="image/png">
+
+<!-- Panel nawigacyjny -->
+<div class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <img src="assets/pictures/logo-sacky-vector.svg" alt="Logo">
+        <span class="navbar-brand">sackydesign.pl</span>
+    </a>
+    <div class="navbar-menu">
+        <a href="index.html" class="navbar-item">Home</a>
+        <a href="informations.html" class="navbar-item">Informations</a>
+        <a href="gallery.html" class="navbar-item active">Gallery</a>
+        <a href="https://dc.sackydesign.pl" class="navbar-item" target="_blank" rel="noopener noreferrer">Contact</a>
+    </div>
+</div>
+
+    <style>
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(45deg, #131519, #232b44);
+    background-attachment: fixed; /* Zapobiega przewijaniu tła */
+    background-size: cover; /* Upewnia się, że tło pokrywa cały ekran */
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0;  /* Zresetowanie marginesu */
+    padding: 0;  /* Zresetowanie paddingu */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+        }
+
+/* Pasek nawigacyjny */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Pełna szerokość */
+    background-color: #0607085e;
+    backdrop-filter: blur(3px); /* Efekt rozmycia */
+    -webkit-backdrop-filter: blur(3px); /* Wsparcie dla Safari */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo po lewej, menu po prawej */
+    padding: 15px 0px; /* Większy padding dla lepszego wyrównania */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    padding: 0px 40px; /* Większy padding dla lepszego wyrównania */
+    text-decoration: none;
+}
+
+.navbar-logo img {
+    height: 40px; /* Dopasowanie wysokości */
+    text-decoration: none;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px; /* Oddalenie napisu od logo */
+}
+
+/* Kontener na linki */
+.navbar-menu {
+    display: flex;
+    gap: 25px; /* Większy odstęp między linkami */
+    margin-right: 40px; /* Zapobiega przyklejeniu do prawej krawędzi */
+}
+
+/* Linki w nawigacji */
+.navbar-item {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Płynna zmiana koloru i tła */
+}
+/* Efekt hover na linkach */
+.navbar-item:hover {
+    color: #8593ff; /* Kolor linku po najechaniu */
+    background-color: #515c6810; /* Tło po najechaniu */
+}
+
+/* Efekt aktywnego linku */
+.navbar-item.active {
+    color: #8593ff; /* Kolor aktywnego linku */
+    background-color: #515c6810; /* Tło aktywnego linku */
+}
+
+.material-icons {
+    font-size: 30px;  /* Rozmiar ikon Material */
+    
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.gallery {
+  display: flex;
+    flex-wrap: wrap; /* Pozwala na zawijanie elementów */
+    justify-content: center; /* Wyśrodkowanie */
+    gap: 18px;
+    margin-top: 270px;
+    padding-bottom: 150px;
+    max-width: 1200px; /* Ograniczenie szerokości galerii */
+}
+
+.row {
+  display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap; /* Dzięki temu elementy nie wychodzą poza kontener */
+    width: 100%;
+    max-width: 1200px; /* Zapewnia równe odstępy */
+}
+
+.image-container {
+  position: relative; /* Dodane - teraz "View photo" pozycjonuje się względem kontenera */
+  width: 48%; /* Każdy obraz zajmuje ~połowę wiersza */
+    max-width: 580px; /* Ograniczenie, aby nie były za duże */
+    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #22222200; /* Tło zapobiegające pustym przestrzeniom */
+}
+
+.image-container img {
+  width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+}
+
+.image-container::after {
+    content: "View photo";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+    filter: brightness(40%);
+}
+
+.image-container:hover::after {
+    opacity: 1;
+}
+
+        
+.fullscreen-img {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Na początku brak przyciemnienia */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+/* Styl pełnoekranowego obrazu */
+.fullscreen-img img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Animacja powiększenia zdjęcia */
+.fullscreen-img.show {
+    background-color: rgba(0, 0, 0, 0.884); /* Przyciemnione tło */
+}
+
+.fullscreen-img.show img {
+    opacity: 1;
+    transform: scale(0.75);
+}
+
+
+.section-title {
+    font-size: 34px;
+    color: #5c6fff; /* Jasny, niebieski kolor dla tytułu */
+    margin-bottom: 20px; /* Większa odległość poniżej nagłówka */
+}
+.btn-discord {
+  --h-button: 48px;
+  --w-button: 102px;
+  --round: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      rgba(223, 113, 255, 0) 100%
+    ),
+    linear-gradient(0deg, #5c6fff, #5c6fff);
+  border-radius: var(--round);
+  border: none;
+  outline: none;
+  padding: 24px 24px;
+  margin-top: 50px;
+  text-decoration: none;
+  top: -155px; /* Przesuwa przycisk o 20px do góry */
+}
+.btn-discord::before,
+.btn-discord::after {
+  content: "";
+  position: absolute;
+  inset: var(--space);
+  transition: all 0.5s ease-in-out;
+  border-radius: calc(var(--round) - var(--space));
+  z-index: 0;
+}
+.btn-discord::before {
+  --space: 1px;
+  background: linear-gradient(
+    177.95deg,
+    rgba(255, 255, 255, 0.19) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.btn-discord::after {
+  --space: 2px;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      #df71ff00 100%
+    ),
+    linear-gradient(0deg, #7a5af8, #5c6fff);
+}
+.btn-discord:active {
+  transform: scale(0.95);
+}
+
+.fold {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  background: radial-gradient(
+    100% 75% at 55%,
+    #abb4ff 0%,
+    #df71ff00 100%
+  );
+  box-shadow: 0 0 3px black;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: var(--round);
+}
+.fold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150%;
+  height: 150%;
+  transform: rotate(45deg) translateX(0%) translateY(-18px);
+  background-color: #e8e8e8;
+  pointer-events: none;
+}
+.btn-discord:hover .fold {
+  margin-top: -1rem;
+  margin-right: -1rem;
+}
+
+.points_wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.points_wrapper .point {
+  bottom: -10px;
+  position: absolute;
+  animation: floating-points infinite ease-in-out;
+  pointer-events: none;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+@keyframes floating-points {
+  0% {
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+.points_wrapper .point:nth-child(1) {
+  left: 10%;
+  opacity: 1;
+  animation-duration: 2.35s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(2) {
+  left: 30%;
+  opacity: 0.7;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+.points_wrapper .point:nth-child(3) {
+  left: 25%;
+  opacity: 0.8;
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(4) {
+  left: 44%;
+  opacity: 0.6;
+  animation-duration: 2.05s;
+}
+.points_wrapper .point:nth-child(5) {
+  left: 50%;
+  opacity: 1;
+  animation-duration: 1.9s;
+}
+.points_wrapper .point:nth-child(6) {
+  left: 75%;
+  opacity: 0.5;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+}
+.points_wrapper .point:nth-child(7) {
+  left: 88%;
+  opacity: 0.9;
+  animation-duration: 2.2s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(8) {
+  left: 58%;
+  opacity: 0.8;
+  animation-duration: 2.25s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(9) {
+  left: 98%;
+  opacity: 0.6;
+  animation-duration: 2.6s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(10) {
+  left: 65%;
+  opacity: 1;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+}
+
+.inner {
+  z-index: 2;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: normal; /* Zapewnia, że tekst nie będzie pogrubiony */
+  line-height: 1.5;
+  transition: color 0.2s ease-in-out;
+}
+
+.inner svg.icon {
+  width: 18px;
+  height: 18px;
+  transition: fill 0.1s linear;
+}
+
+.btn-discord:focus svg.icon {
+  fill: white;
+}
+.btn-discord:hover svg.icon {
+  fill: transparent;
+  animation:
+    dasharray 1s linear forwards,
+    filled 0.1s linear forwards 0.95s;
+}
+@keyframes dasharray {
+  from {
+    stroke-dasharray: 0 0 0 0;
+  }
+  to {
+    stroke-dasharray: 68 68 0 0;
+  }
+}
+@keyframes filled {
+  to {
+    fill: white;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <h2 class="section-title">Banners</h2>
+    <div class="row">
+      <div class="image-container"><img src="assets/pictures/Banners/banne6.png" alt="Baner 1"></div>
+      <div class="image-container"><img src="assets/pictures/Banners/banne10.png" alt="Baner 2"></div>
+  </div>
+  <div class="row">
+      <div class="image-container"><img src="assets/pictures/Banners/banne5.png" alt="Baner 3"></div>
+      <div class="image-container"><img src="assets/pictures/Banners/banne2.png" alt="Baner 4"></div>
+  </div>
+  <div class="row">
+      <div class="image-container"><img src="assets/pictures/Banners/banne9.png" alt="Baner 5"></div>
+      <div class="image-container"><img src="assets/pictures/Banners/banne3.png" alt="Baner 6"></div>
+  </div>
+  <div class="row">
+        <div class="image-container"><img src="assets/pictures/Banners/banne8.png" alt="Baner 5"></div>
+        <div class="image-container"><img src="assets/pictures/Banners/banne7.png" alt="Baner 6"></div>
+   </div>
+   <div class="row">
+            <div class="image-container"><img src="assets/pictures/Banners/banne1.png" alt="Baner 5"></div>
+            <div class="image-container"><img src="assets/pictures/Banners/banne4.png" alt="Baner 6"></div>
+  </div>
+</div>
+
+<a href="gallery.html" class="btn-discord">
+    <span class="fold"></span>
+
+    <div class="points_wrapper">
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+        <i class="point"></i>
+    </div>
+    <span class="inner">
+        <i class="fa-solid fa-share"></i>
+        Back Page
+    </span>
+</a>
+
+
+
+    <!-- Pełnoekranowe zdjęcie -->
+    <div class="fullscreen-img" id="fullscreen-img" onclick="closeFullscreen()">
+      <img id="fullscreen-image" src="" alt="Powiększone zdjęcie">
+  </div>
+
+
+<!-- Stopka -->
+<footer style="background-color: #1112166e; color: #fff; padding: 21px; width: 100%; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <!-- Media społecznościowe -->
+      <div style="margin-bottom: 10px;">
+        <a href="https://www.youtube.com/@SackyPL" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 20px;">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/sacky_pl/" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 20px;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://discord.gg/3faS24JYDJ" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 20px;">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="mailto:sackydesign@gmail.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 20px;">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+  
+      <!-- Prawa autorskie -->
+      <p style="font-size: 14px; color: #d1d1d1;">&copy; Copyright 2025 sackydesign.pl - All rights reserved.</p>
+    </div>
+  </footer>
+  
+  
+    <script>
+        document.querySelector('.scroll-mouse').addEventListener('click', function() {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+        });
+        
+        // Wyszukaj wszystkie elementy nawigacji
+        const navItems = document.querySelectorAll('.navbar-item');
+        
+        // Funkcja do ustawienia aktywnej klasy
+        function setActiveLink() {
+            navItems.forEach(item => {
+                item.classList.remove('active'); // Usuń klasę 'active' z każdego elementu
+            });
+            // Dodaj klasę 'active' do linku, który jest aktualnie na stronie
+            const currentUrl = window.location.pathname.split('/').pop();
+            navItems.forEach(item => {
+                if (item.href.includes(currentUrl)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Uruchom funkcję po załadowaniu strony
+        window.addEventListener('load', setActiveLink);
+            </script>
+  
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+      integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+
+window.onload = () => {
+    setTimeout(() => {
+        const skillPer = document.querySelectorAll('.skill-per');
+
+        skillPer.forEach((skill) => {
+            // Zmieniamy opacity na 1, aby paski były widoczne po 2 sekundach
+            skill.style.opacity = 1;
+
+            let startPoint = 0;
+            let endPoint = skill.getAttribute('per');
+
+            let progress = setInterval(() => {
+                if (startPoint >= endPoint) {
+                    clearInterval(progress);
+                } else {
+                    startPoint++;
+                    skill.style.width = `${startPoint}%`;
+                    skill.firstElementChild.innerText = `${startPoint}%`;
+                }
+            }, 30);
+        });
+    }, 2000); // Opóźnienie o 2 sekundy
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraphs = document.querySelectorAll(".aboutme-text");
+    paragraphs.forEach((p, index) => {
+        p.style.animationDelay = `${index * 0.2}s`; // Każdy kolejny akapit pojawia się 0.3s później
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const titles = document.querySelectorAll(".section-title");
+
+    titles.forEach((title) => {
+        // Animacja nagłówka
+        gsap.fromTo(
+            title,
+            { opacity: 0, y: -50 },
+            { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        );
+    });
+});
+
+const text = "sackydesign.pl - Banners";
+  let index = 0;
+  let isDeleting = false;
+
+  function typeTitle() {
+    let currentText = text.substring(0, index);
+    document.title = currentText + (index % 2 === 0 ? " _" : ""); // Mrugający kursor
+
+    if (!isDeleting) {
+      index++;
+      if (index > text.length) isDeleting = true; // Zaczyna usuwać
+    } else {
+      index--;
+      if (index === 0) isDeleting = false; // Zaczyna od nowa
+    }
+
+    setTimeout(typeTitle, isDeleting ? 50 : 150); // Szybkość pisania/usuwania
+  }
+
+  typeTitle();
+
+  function openFullscreen(imgElement) {
+            var fullscreenImg = document.getElementById('fullscreen-img');
+            var fullscreenImage = document.getElementById('fullscreen-image');
+            fullscreenImage.src = imgElement.src; // Ustawia źródło powiększonego obrazu
+            fullscreenImg.style.display = "flex"; // Pokazuje pełnoekranowy widok
+            setTimeout(function() {
+                fullscreenImg.classList.add('show'); // Dodaje klasę z animacją
+            }, 10); // Małe opóźnienie na animację
+        }
+
+        function closeFullscreen() {
+            var fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.classList.remove('show'); // Usuwa klasę z animacją
+            setTimeout(function() {
+                fullscreenImg.style.display = "none"; // Ukrywa pełnoekranowy widok
+            }, 300); // Czas trwania animacji powrotu
+        }
+        
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".image-container img");
+
+    // Tworzymy pełnoekranowy kontener, jeśli jeszcze go nie ma
+    let fullscreenContainer = document.querySelector(".fullscreen-img");
+    if (!fullscreenContainer) {
+        fullscreenContainer = document.createElement("div");
+        fullscreenContainer.classList.add("fullscreen-img");
+        fullscreenContainer.innerHTML = `<img src="" alt="Fullscreen Image">`;
+        document.body.appendChild(fullscreenContainer);
+    }
+
+    const fullscreenImg = fullscreenContainer.querySelector("img");
+
+    images.forEach(img => {
+        img.addEventListener("click", function () {
+            fullscreenImg.src = img.src;
+            fullscreenContainer.style.display = "flex"; // Pokazuje pełnoekranowy widok
+            setTimeout(() => {
+                fullscreenContainer.classList.add("show"); // Dodaje animację powiększenia
+            }, 10);
+        });
+    });
+
+    // Zamknięcie obrazu po kliknięciu w tło
+    fullscreenContainer.addEventListener("click", function (e) {
+        if (e.target === fullscreenContainer) {
+            fullscreenContainer.classList.remove("show");
+            setTimeout(() => {
+                fullscreenContainer.style.display = "none"; // Ukrywa pełnoekranowy widok
+            }, 300);
+        }
+    });
+});
+
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>

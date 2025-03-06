@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css"
+      integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<!-- CDN Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="icon" href="assets/pictures/logo-sacky-vector.svg" type="image/png">
+
+<!-- Panel nawigacyjny -->
+<div class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <img src="assets/pictures/logo-sacky-vector.svg" alt="Logo">
+        <span class="navbar-brand">sackydesign.pl</span>
+    </a>
+    <div class="navbar-menu">
+        <a href="index.html" class="navbar-item active">Home</a>
+        <a href="informations.html" class="navbar-item">Informations</a>
+        <a href="gallery.html" class="navbar-item">Gallery</a>
+        <a href="https://dc.sackydesign.pl" class="navbar-item" target="_blank" rel="noopener noreferrer">Contact</a>
+    </div>
+</div>
+
+
+
+ 
+
+    <style>
+        body {
+            background: linear-gradient(45deg, #131519, #232b44);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start; /* Wyrównanie tekstu i obrazu w górnej części */
+            max-width: 900px;
+            margin-top: 300px; /* Zwiększ, jeśli potrzebujesz więcej przestrzeni */
+            padding-top: 50px;
+        }
+        .text-content {
+            max-width: 50%;
+            margin-right: 20px; /* Odstęp od obrazu */
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: white;
+        }
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+            color: #5c6fff;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #d1d1d1;
+        }
+        .button {
+  --h-button: 48px;
+  --w-button: 102px;
+  --round: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      rgba(223, 113, 255, 0) 100%
+    ),
+    linear-gradient(0deg, #5c6fff, #5c6fff);
+  border-radius: var(--round);
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  margin-top: 8px;
+}
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  inset: var(--space);
+  transition: all 0.5s ease-in-out;
+  border-radius: calc(var(--round) - var(--space));
+  z-index: 0;
+}
+.button::before {
+  --space: 1px;
+  background: linear-gradient(
+    177.95deg,
+    rgba(255, 255, 255, 0.19) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.button::after {
+  --space: 2px;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      #df71ff00 100%
+    ),
+    linear-gradient(0deg, #7a5af8, #5c6fff);
+}
+.button:active {
+  transform: scale(0.95);
+}
+
+.fold {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  background: radial-gradient(
+    100% 75% at 55%,
+    #abb4ff 0%,
+    #df71ff00 100%
+  );
+  box-shadow: 0 0 3px black;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: var(--round);
+}
+.fold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150%;
+  height: 150%;
+  transform: rotate(45deg) translateX(0%) translateY(-18px);
+  background-color: #e8e8e8;
+  pointer-events: none;
+}
+.button:hover .fold {
+  margin-top: -1rem;
+  margin-right: -1rem;
+}
+
+.points_wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.points_wrapper .point {
+  bottom: -10px;
+  position: absolute;
+  animation: floating-points infinite ease-in-out;
+  pointer-events: none;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+@keyframes floating-points {
+  0% {
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+.points_wrapper .point:nth-child(1) {
+  left: 10%;
+  opacity: 1;
+  animation-duration: 2.35s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(2) {
+  left: 30%;
+  opacity: 0.7;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+.points_wrapper .point:nth-child(3) {
+  left: 25%;
+  opacity: 0.8;
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(4) {
+  left: 44%;
+  opacity: 0.6;
+  animation-duration: 2.05s;
+}
+.points_wrapper .point:nth-child(5) {
+  left: 50%;
+  opacity: 1;
+  animation-duration: 1.9s;
+}
+.points_wrapper .point:nth-child(6) {
+  left: 75%;
+  opacity: 0.5;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+}
+.points_wrapper .point:nth-child(7) {
+  left: 88%;
+  opacity: 0.9;
+  animation-duration: 2.2s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(8) {
+  left: 58%;
+  opacity: 0.8;
+  animation-duration: 2.25s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(9) {
+  left: 98%;
+  opacity: 0.6;
+  animation-duration: 2.6s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(10) {
+  left: 65%;
+  opacity: 1;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+}
+
+.inner {
+  z-index: 2;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 0.2s ease-in-out;
+}
+
+.inner svg.icon {
+  width: 18px;
+  height: 18px;
+  transition: fill 0.1s linear;
+}
+
+.button:focus svg.icon {
+  fill: white;
+}
+.button:hover svg.icon {
+  fill: transparent;
+  animation:
+    dasharray 1s linear forwards,
+    filled 0.1s linear forwards 0.95s;
+}
+@keyframes dasharray {
+  from {
+    stroke-dasharray: 0 0 0 0;
+  }
+  to {
+    stroke-dasharray: 68 68 0 0;
+  }
+}
+@keyframes filled {
+  to {
+    fill: white;
+  }
+}
+        .image {
+            margin-left: 20px;
+            margin-top: -50px;
+
+        }
+        .image img {
+            width: 530px;
+            border-radius: 20px;
+        }
+
+        /* Animacja flip */
+        .wordCarousel {
+            font-size: 36px;
+            font-weight: 100;
+            color: #eee;
+            margin-top: 7px; /* Odstęp od napisu 'Hi, I am' */
+            margin-bottom: 10px; /* Odstęp od napisu 'Hi, I am' */
+            text-align: left; /* Wyśrodkowanie tekstu w pionie */
+        }
+
+        .wordCarousel div {
+            overflow: hidden;
+            position: relative;
+            height: 65px;
+            padding-top: 10px;
+            margin-top: -10px;
+        }
+
+        .wordCarousel ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .wordCarousel li {
+            color: #5c6fff;
+            font-weight: 700;
+            height: 45px;
+            margin-bottom: 45px;
+            display: block;
+        }
+
+        .flip5 { animation: flip5 12s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
+        @keyframes flip5 {
+            25% { margin-top: -270px; }
+            40% { margin-top: -270px; }
+            45% { margin-top: -180px; }
+            60% { margin-top: -180px; }
+            65% { margin-top: -90px; }
+            80% { margin-top: -90px; }
+            85% { margin-top: 0px; }
+            99.99% { margin-top: 0px; }
+            100% { margin-top: -450px; }
+        }
+        html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1; /* Główna zawartość rozciąga się, wypychając stopkę na dół */
+}
+        .container {
+            display: flex;
+            align-items: flex-start;
+            max-width: 900px;
+            padding-top: 50px;
+        }
+        .text-content {
+            max-width: 50%;
+            margin-right: 20px;
+        }
+        .experience-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .experience-item {
+            text-align: center;
+            color: #d1d1d1;
+            font-size: 1.2em;
+            margin: 20px;
+        }
+        .animate-circle {
+            animation: fillCircle 2s ease-out forwards;
+        }
+        @keyframes fillCircle {
+            from { stroke-dashoffset: 251; }
+            to { stroke-dashoffset: 0; }
+        }
+
+section {
+  height: 100vh;
+  background: #fefae0;
+  display: grid;
+  place-items: center;
+  font-size: 90px;
+}
+
+.stats-container {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 30px auto;
+  max-width: 1000px;
+  padding-inline: 16px;
+}
+
+.stats-container .stat {
+  background: #5c6fff23;
+  padding: 20px;
+  text-align: center;
+  color: #edf2f4;
+  border-radius: 15px;
+  border: 2px solid #5c6fff;
+}
+
+.stats-container .stat .odometer {
+  font-size: 50px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.stats-container .stat .type {
+  font-size: 20px;
+}
+.odometer.plus {
+  position: relative;
+}
+
+.odometer.plus::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  right: -16px;
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+#achievements {
+    padding: 60px 20px; /* Odstęp wewnętrzny sekcji */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    border-radius: 10px; /* Zaokrąglone rogi sekcji */
+    margin-top: 100px; /* Odstęp od poprzednich sekcji */
+}
+.section-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #5c6fff; /* Kolor tytułu */
+    margin-bottom: 30px; /* Odstęp poniżej tytułu */
+}
+/* Pasek nawigacyjny */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Pełna szerokość */
+    background-color: #0607085e;
+    backdrop-filter: blur(3px); /* Efekt rozmycia */
+    -webkit-backdrop-filter: blur(3px); /* Wsparcie dla Safari */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo po lewej, menu po prawej */
+    padding: 15px 0px; /* Większy padding dla lepszego wyrównania */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    padding: 0px 40px; /* Większy padding dla lepszego wyrównania */
+    text-decoration: none;
+}
+
+.navbar-logo img {
+    height: 40px; /* Dopasowanie wysokości */
+    text-decoration: none;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px; /* Oddalenie napisu od logo */
+}
+
+/* Kontener na linki */
+.navbar-menu {
+    display: flex;
+    gap: 25px; /* Większy odstęp między linkami */
+    margin-right: 40px; /* Zapobiega przyklejeniu do prawej krawędzi */
+}
+
+/* Linki w nawigacji */
+.navbar-item {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Płynna zmiana koloru i tła */
+}
+/* Efekt hover na linkach */
+.navbar-item:hover {
+    color: #8593ff; /* Kolor linku po najechaniu */
+    background-color: #515c6810; /* Tło po najechaniu */
+}
+
+/* Efekt aktywnego linku */
+.navbar-item.active {
+    color: #8593ff; /* Kolor aktywnego linku */
+    background-color: #515c6810; /* Tło aktywnego linku */
+}
+
+.material-icons {
+    font-size: 30px;  /* Rozmiar ikon Material */
+    
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+/* Ekran ładowania */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5c6fff; /* Tło na ekranie ładowania */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column; /* Ustawienie tekstu pod ikoną */
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Animacja znikania */
+}
+
+/* Klasa ukrywająca ekran ładowania */
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Uniemożliwia interakcję z ekranem */
+}
+
+/* Ikona pędzla */
+.loading-screen i {
+    color: white;
+    font-size: 6rem;
+    animation: bounce 1s infinite; /* Animacja skakania ikony */
+}
+
+/* Animacja skakania ikony */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Wysokość skoku */
+    }
+}
+.blinking-text {
+    font-size: 22px;
+    color: white;
+    margin-top: 30px;
+    animation: soft-blink 0.5s infinite alternate;
+  }
+
+  @keyframes soft-blink {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+  @keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+h1 .wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+/* Kontener przycisków */
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards; /* Animacja kontenera */
+}
+
+/* Animacja kontenera - z dołu do góry */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Na początku kontener jest przesunięty w dół */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Kończy w normalnej pozycji */
+  }
+}
+
+/* Animacja przycisków */
+.button-wrapper .button {
+  opacity: 0; /* Początkowo przyciski są niewidoczne */
+  animation: fadeInUpButtons 0.8s forwards; /* Animacja przycisków */
+  animation-delay: 0s; /* Bez opóźnienia dla każdego przycisku */
+}
+
+/* Animacja przycisków - opóźnienie i ruch z dołu */
+@keyframes fadeInUpButtons {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Na początku przycisk jest przesunięty */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Kończy w normalnej pozycji */
+  }
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="loadingScreen" class="loading-screen">
+        <i class="fas fa-paint-brush fa-6x fa-bounce"></i> 
+        <p class="blinking-text">loading page...</p>
+    </div>
+
+
+
+    <div class="container">
+        <div class="text-content">
+            <h1>Hello <span class="wave">👋</span>, I am</h1>
+            <h4 class="wordCarousel">
+                <div>
+                    <ul class="flip5">
+                        <li>Your Best Choice</li>
+                        <li>Motion Designer</li>
+                        <li>Visual Editor</li>
+                        <li>Graphic Designer</li>
+                    </ul>
+                </div>
+            </h4>
+            <p>I create modern graphic designs that guarantee an aesthetic and comfortable visual experience for customer.</p>
+
+            <button type="button" class="button">
+                <span class="fold"></span>
+              
+                <div class="points_wrapper">
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                  <i class="point"></i>
+                </div>
+              
+                <a href="informations.html">
+                  <span class="inner">
+                      <i class="fa-solid fa-share"></i>
+                      Check Informations
+                  </span>
+              </a>
+              </button>
+            <!-- Don't forget to include Font Awesome in your project -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            
+      
+        </div>
+        <div class="image">
+            <img src="assets/pictures/Font-amico.svg" alt="Profile Picture">
+        </div>
+    </div>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+      integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+document.querySelector('.scroll-mouse').addEventListener('click', function() {
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: 'smooth'
+  });
+});
+
+// Wyszukaj wszystkie elementy nawigacji
+const navItems = document.querySelectorAll('.navbar-item');
+
+// Funkcja do ustawienia aktywnej klasy
+function setActiveLink() {
+    navItems.forEach(item => {
+        item.classList.remove('active'); // Usuń klasę 'active' z każdego elementu
+    });
+    // Dodaj klasę 'active' do linku, który jest aktualnie na stronie
+    const currentUrl = window.location.pathname.split('/').pop();
+    navItems.forEach(item => {
+        if (item.href.includes(currentUrl)) {
+            item.classList.add('active');
+        }
+    });
+}
+
+// Uruchom funkcję po załadowaniu strony
+window.addEventListener('load', setActiveLink);
+    </script>
+    <script>
+
+// Funkcja, która ukryje ekran ładowania po 3 sekundach
+window.addEventListener("load", () => {
+    // Poczekaj, aż strona załaduje się w pełni
+    setTimeout(() => {
+        const loadingScreen = document.getElementById("loadingScreen");
+        loadingScreen.classList.add("hidden"); // Dodaj klasę ukrywającą ekran
+    }, 1500); // Zniknięcie po 3 sekundach
+});
+
+const text = "sackydesign.pl - Home";
+  let index = 0;
+  let isDeleting = false;
+
+  function typeTitle() {
+    let currentText = text.substring(0, index);
+    document.title = currentText + (index % 2 === 0 ? " _" : ""); // Mrugający kursor
+
+    if (!isDeleting) {
+      index++;
+      if (index > text.length) isDeleting = true; // Zaczyna usuwać
+    } else {
+      index--;
+      if (index === 0) isDeleting = false; // Zaczyna od nowa
+    }
+
+    setTimeout(typeTitle, isDeleting ? 50 : 150); // Szybkość pisania/usuwania
+  }
+
+  typeTitle();
+
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>

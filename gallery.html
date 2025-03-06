@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css"
+      integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<!-- CDN Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.12.1/framer-motion.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="icon" href="assets/pictures/logo-sacky-vector.svg" type="image/png">
+
+<!-- Panel nawigacyjny -->
+<div class="navbar">
+    <a href="index.html" class="navbar-logo">
+        <img src="assets/pictures/logo-sacky-vector.svg" alt="Logo">
+        <span class="navbar-brand">sackydesign.pl</span>
+    </a>
+    <div class="navbar-menu">
+        <a href="index.html" class="navbar-item">Home</a>
+        <a href="informations.html" class="navbar-item">Informations</a>
+        <a href="gallery.html" class="navbar-item active">Gallery</a>
+        <a href="https://dc.sackydesign.pl" class="navbar-item" target="_blank" rel="noopener noreferrer">Contact</a>
+    </div>
+</div>
+
+    <style>
+        html, body {
+    overflow: auto; /* Upewnij się, że przewijanie jest włączone */
+}
+body {
+    background: linear-gradient(45deg, #131519, #232b44);
+    background-attachment: fixed; /* Zapobiega przewijaniu tła */
+    background-size: cover; /* Upewnia się, że tło pokrywa cały ekran */
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0;  /* Zresetowanie marginesu */
+    padding: 0;  /* Zresetowanie paddingu */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+        }
+
+/* Pasek nawigacyjny */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Pełna szerokość */
+    background-color: #0607085e;
+    backdrop-filter: blur(3px); /* Efekt rozmycia */
+    -webkit-backdrop-filter: blur(3px); /* Wsparcie dla Safari */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo po lewej, menu po prawej */
+    padding: 15px 0px; /* Większy padding dla lepszego wyrównania */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    padding: 0px 40px; /* Większy padding dla lepszego wyrównania */
+    text-decoration: none;
+}
+
+.navbar-logo img {
+    height: 40px; /* Dopasowanie wysokości */
+    text-decoration: none;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px; /* Oddalenie napisu od logo */
+}
+
+/* Kontener na linki */
+.navbar-menu {
+    display: flex;
+    gap: 25px; /* Większy odstęp między linkami */
+    margin-right: 40px; /* Zapobiega przyklejeniu do prawej krawędzi */
+}
+
+/* Linki w nawigacji */
+.navbar-item {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Płynna zmiana koloru i tła */
+}
+/* Efekt hover na linkach */
+.navbar-item:hover {
+    color: #8593ff; /* Kolor linku po najechaniu */
+    background-color: #515c6810; /* Tło po najechaniu */
+}
+
+/* Efekt aktywnego linku */
+.navbar-item.active {
+    color: #8593ff; /* Kolor aktywnego linku */
+    background-color: #515c6810; /* Tło aktywnego linku */
+}
+
+.material-icons {
+    font-size: 30px;  /* Rozmiar ikon Material */
+    
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+/* Ogólny wygląd sekcji galerii */
+#gallery {
+    background-color: #232b4400; /* Używamy ciemniejszego tła */
+    padding: 100px 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: #edf2f4; /* Jasny kolor tekstu */
+    margin-top: 170px;
+}
+
+#gallery h2 {
+    font-size: 34px;
+    color: #5c6fff; /* Jasny, niebieski kolor dla tytułu */
+    margin-bottom: 20px; /* Większa odległość poniżej nagłówka */
+}
+
+#gallery p {
+    font-size: 19.2px;
+    color: white;
+    text-shadow: 0px 0px 15px #ffffff33;
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Większa przestrzeń między przyciskami */
+}
+
+.button {
+  --h-button: 48px;
+  --w-button: 102px;
+  --round: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      rgba(223, 113, 255, 0) 100%
+    ),
+    linear-gradient(0deg, #5c6fff, #5c6fff);
+  border-radius: var(--round);
+  border: none;
+  outline: none;
+  padding: 11px 24px;
+  margin-top: 8px;
+  margin-right: 10px; /* Odstęp po prawej stronie przycisku */
+}
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  inset: var(--space);
+  transition: all 0.5s ease-in-out;
+  border-radius: calc(var(--round) - var(--space));
+  z-index: 0;
+}
+.button::before {
+  --space: 1px;
+  background: linear-gradient(
+    177.95deg,
+    rgba(255, 255, 255, 0.19) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.button::after {
+  --space: 2px;
+  background: radial-gradient(
+      65.28% 65.28% at 50% 100%,
+      #8b99ff 0%,
+      #df71ff00 100%
+    ),
+    linear-gradient(0deg, #7a5af8, #5c6fff);
+}
+.button:active {
+  transform: scale(0.95);
+}
+
+.fold {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  background: radial-gradient(
+    100% 75% at 55%,
+    #abb4ff 0%,
+    #df71ff00 100%
+  );
+  box-shadow: 0 0 3px black;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: var(--round);
+}
+.fold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150%;
+  height: 150%;
+  transform: rotate(45deg) translateX(0%) translateY(-18px);
+  background-color: #e8e8e8;
+  pointer-events: none;
+}
+.button:hover .fold {
+  margin-top: -1rem;
+  margin-right: -1rem;
+}
+
+.points_wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.points_wrapper .point {
+  bottom: -10px;
+  position: absolute;
+  animation: floating-points infinite ease-in-out;
+  pointer-events: none;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+@keyframes floating-points {
+  0% {
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+.points_wrapper .point:nth-child(1) {
+  left: 10%;
+  opacity: 1;
+  animation-duration: 2.35s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(2) {
+  left: 30%;
+  opacity: 0.7;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+.points_wrapper .point:nth-child(3) {
+  left: 25%;
+  opacity: 0.8;
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(4) {
+  left: 44%;
+  opacity: 0.6;
+  animation-duration: 2.05s;
+}
+.points_wrapper .point:nth-child(5) {
+  left: 50%;
+  opacity: 1;
+  animation-duration: 1.9s;
+}
+.points_wrapper .point:nth-child(6) {
+  left: 75%;
+  opacity: 0.5;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+}
+.points_wrapper .point:nth-child(7) {
+  left: 88%;
+  opacity: 0.9;
+  animation-duration: 2.2s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(8) {
+  left: 58%;
+  opacity: 0.8;
+  animation-duration: 2.25s;
+  animation-delay: 0.2s;
+}
+.points_wrapper .point:nth-child(9) {
+  left: 98%;
+  opacity: 0.6;
+  animation-duration: 2.6s;
+  animation-delay: 0.1s;
+}
+.points_wrapper .point:nth-child(10) {
+  left: 65%;
+  opacity: 1;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+}
+
+.inner {
+  z-index: 2;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 0.2s ease-in-out;
+}
+
+.inner svg.icon {
+  width: 18px;
+  height: 18px;
+  transition: fill 0.1s linear;
+}
+
+.button:focus svg.icon {
+  fill: white;
+}
+.button:hover svg.icon {
+  fill: transparent;
+  animation:
+    dasharray 1s linear forwards,
+    filled 0.1s linear forwards 0.95s;
+}
+@keyframes dasharray {
+  from {
+    stroke-dasharray: 0 0 0 0;
+  }
+  to {
+    stroke-dasharray: 68 68 0 0;
+  }
+}
+@keyframes filled {
+  to {
+    fill: white;
+  }
+}
+/* Kontener przycisków */
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards; /* Animacja kontenera */
+}
+
+/* Animacja kontenera - z dołu do góry */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Na początku kontener jest przesunięty w dół */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Kończy w normalnej pozycji */
+  }
+}
+
+/* Animacja przycisków */
+.button-wrapper .button {
+  opacity: 0; /* Początkowo przyciski są niewidoczne */
+  animation: fadeInUpButtons 0.8s forwards; /* Animacja przycisków */
+  animation-delay: 0s; /* Bez opóźnienia dla każdego przycisku */
+}
+
+/* Animacja przycisków - opóźnienie i ruch z dołu */
+@keyframes fadeInUpButtons {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Na początku przycisk jest przesunięty */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Kończy w normalnej pozycji */
+  }
+}
+
+
+
+.image {
+    margin-left: 20px;
+    margin-top: -10px;
+    opacity: 0; /* Początkowo obraz jest niewidoczny */
+    animation: fadeIn 2s forwards; /* Animacja fadeIn trwa 1 sekundę */
+}
+
+.image img {
+    width: 550px;
+    border-radius: 20px;
+}
+
+/* Definicja animacji fadeIn */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Początkowo obraz jest niewidoczny */
+    }
+    100% {
+        opacity: 1; /* Po zakończeniu animacji obraz staje się widoczny */
+    }
+}
+    </style>
+</head>
+<body>
+
+  <section id="gallery">
+    <h2 class="section-title">Gallery</h2>
+  
+    <div class="button-wrapper">
+        <a href="logotypes.html">
+            <button type="button" class="button">
+                <span class="fold"></span>
+                <div class="points_wrapper">
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                </div>
+                <span class="inner">
+                    Logotypes
+                </span>
+            </button>
+        </a>
+  
+        <a href="banners.html">
+            <button type="button" class="button">
+                <span class="fold"></span>
+                <div class="points_wrapper">
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                </div>
+                <span class="inner">
+                    Banners
+                </span>
+            </button>
+        </a>
+
+        <a href="products.html">
+            <button type="button" class="button">
+                <span class="fold"></span>
+                <div class="points_wrapper">
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                </div>
+                <span class="inner">
+                    Product Mockups
+                </span>
+            </button>
+        </a>
+
+        <a href="videos.html">
+            <button type="button" class="button">
+                <span class="fold"></span>
+                <div class="points_wrapper">
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                    <i class="point"></i>
+                </div>
+                <span class="inner">
+                    Videos
+                </span>
+            </button>
+        </a>
+    </div>
+
+    <!-- Dodanie zdjęcia SVG -->
+    <img src="assets/pictures/gallery-photo.svg" alt="Gallery Background" class="image">
+
+</section>
+
+      
+        
+    <script>
+        document.querySelector('.scroll-mouse').addEventListener('click', function() {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+        });
+        
+        // Wyszukaj wszystkie elementy nawigacji
+        const navItems = document.querySelectorAll('.navbar-item');
+        
+        // Funkcja do ustawienia aktywnej klasy
+        function setActiveLink() {
+            navItems.forEach(item => {
+                item.classList.remove('active'); // Usuń klasę 'active' z każdego elementu
+            });
+            // Dodaj klasę 'active' do linku, który jest aktualnie na stronie
+            const currentUrl = window.location.pathname.split('/').pop();
+            navItems.forEach(item => {
+                if (item.href.includes(currentUrl)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Uruchom funkcję po załadowaniu strony
+        window.addEventListener('load', setActiveLink);
+            </script>
+  
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+      integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+
+window.onload = () => {
+    setTimeout(() => {
+        const skillPer = document.querySelectorAll('.skill-per');
+
+        skillPer.forEach((skill) => {
+            // Zmieniamy opacity na 1, aby paski były widoczne po 2 sekundach
+            skill.style.opacity = 1;
+
+            let startPoint = 0;
+            let endPoint = skill.getAttribute('per');
+
+            let progress = setInterval(() => {
+                if (startPoint >= endPoint) {
+                    clearInterval(progress);
+                } else {
+                    startPoint++;
+                    skill.style.width = `${startPoint}%`;
+                    skill.firstElementChild.innerText = `${startPoint}%`;
+                }
+            }, 30);
+        });
+    }, 2000); // Opóźnienie o 2 sekundy
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraphs = document.querySelectorAll(".aboutme-text");
+    paragraphs.forEach((p, index) => {
+        p.style.animationDelay = `${index * 0.2}s`; // Każdy kolejny akapit pojawia się 0.3s później
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const titles = document.querySelectorAll(".section-title");
+
+    titles.forEach((title) => {
+        // Animacja nagłówka
+        gsap.fromTo(
+            title,
+            { opacity: 0, y: -50 },
+            { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        );
+    });
+});
+
+const text = "sackydesign.pl - Gallery";
+  let index = 0;
+  let isDeleting = false;
+
+  function typeTitle() {
+    let currentText = text.substring(0, index);
+    document.title = currentText + (index % 2 === 0 ? " _" : ""); // Mrugający kursor
+
+    if (!isDeleting) {
+      index++;
+      if (index > text.length) isDeleting = true; // Zaczyna usuwać
+    } else {
+      index--;
+      if (index === 0) isDeleting = false; // Zaczyna od nowa
+    }
+
+    setTimeout(typeTitle, isDeleting ? 50 : 150); // Szybkość pisania/usuwania
+  }
+
+  typeTitle();
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
